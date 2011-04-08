@@ -1,0 +1,21 @@
+/* see the comments in the .cpp file for details about the functions */
+
+#ifndef MYGLWIDGET_H
+#define MYGLWIDGET_H
+
+#include <QtOpenGL/QGLWidget>
+
+
+class MyGLWidget: public QGLWidget{ //inherit from QGLWidget
+	Q_OBJECT //tell Qt that this is a Qt object.  Don't erase this.
+
+public:
+	MyGLWidget(QWidget *parent = 0);
+	~MyGLWidget();
+	void initializeGL();
+	void paintGL();
+	void resizeGL(int, int);
+
+};
+
+#endif MYGLWIDGET_H

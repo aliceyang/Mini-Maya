@@ -1,0 +1,56 @@
+/*  
+	MyGLWidget extends the QGLWidget class, which is the Qt Widget with built in OpenGL functionality.
+	It has 3 essential functions: initializeGL, paintGL, resizeGL
+	initializeGL - can be used to call some one time initialization parameters.  In this example, the clear color is set.
+	paintGL - is called every time the QGLWidget needs to be repainted.  This is where you will visualize your geometry
+	resizeGL - is called every time the QGLWidget is resized, and once initially as well.
+
+*/
+
+#include "MyGLWidget.h"
+#include <iostream>
+#include <QtGui>
+#include <QtOpenGL>
+
+MyGLWidget::MyGLWidget(QWidget *parent)
+: QGLWidget(QGLFormat(QGL::SampleBuffers), parent)
+{
+		//default constructor, which will call the base constructor with some formatting parameters and the parent widget
+}
+void MyGLWidget::initializeGL(){
+	glClearColor(1.0,0.0,0.0,1.0); //sets the background color to red
+
+}
+
+//calls made here are made every time the widget's contents are repainted.  notice how we are redrawing everything.
+void MyGLWidget::paintGL(){
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear the screen and depth buffer
+	glLoadIdentity(); //loads the identity matrix into the OpenGL matrix stack.  
+	glBegin(GL_QUADS); //tells OpenGL that vertices representing a quad are on the way
+	glVertex2f(-1,-1); //list of vertices in (x,y) format
+	glVertex2f(1,-1);
+	glVertex2f(1,1);
+	glVertex2f(-1,1);
+	glEnd(); //end list of vertices
+}
+
+//this function is called every time the window is resized.  
+void MyGLWidget::resizeGL(int width, int height){
+	int side = qMin(width, height);  //finds the min of the width and height.  helpful for different distortions of the window
+	glViewport((width - side) / 2, (height - side) / 2, side, side); //set the viewport
+
+	glMatrixMode(GL_PROJECTION); //set the matrix mode to Projection
+	glLoadIdentity(); //load the identity
+#ifdef QT_OPENGL_ES_1
+	glOrthof(-0.5, +0.5, -0.5, +0.5, 4.0, 15.0);
+#else
+	glOrtho(-10,10,-10,10,-1,1); //set up an orthogonal viewing projection.  orthogonal has no perspective.
+#endif
+	glMatrixMode(GL_MODELVIEW); //change to the Modelview mode
+
+}
+
+//deconstructor that's empty
+MyGLWidget::~MyGLWidget(){
+
+}

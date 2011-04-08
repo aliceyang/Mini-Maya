@@ -1,0 +1,88 @@
+/********************************************************************************
+** Form generated from reading UI file 'opengltest.ui'
+**
+** Created: Sun Jan 24 23:55:40 2010
+**      by: Qt User Interface Compiler version 4.6.1
+**
+** WARNING! All changes made in this file will be lost when recompiling UI file!
+********************************************************************************/
+
+#ifndef UI_OPENGLTEST_H
+#define UI_OPENGLTEST_H
+
+#include <QtCore/QVariant>
+#include <QtGui/QAction>
+#include <QtGui/QApplication>
+#include <QtGui/QButtonGroup>
+#include <QtGui/QHeaderView>
+#include <QtGui/QMainWindow>
+#include <QtGui/QMenuBar>
+#include <QtGui/QPushButton>
+#include <QtGui/QStatusBar>
+#include <QtGui/QToolBar>
+#include <QtGui/QVBoxLayout>
+#include <QtGui/QWidget>
+
+QT_BEGIN_NAMESPACE
+
+class Ui_OpenGLTestClass
+{
+public:
+    QWidget *centralWidget;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QPushButton *pushButton;
+    QMenuBar *menuBar;
+    QToolBar *mainToolBar;
+    QStatusBar *statusBar;
+
+    void setupUi(QMainWindow *OpenGLTestClass)
+    {
+        if (OpenGLTestClass->objectName().isEmpty())
+            OpenGLTestClass->setObjectName(QString::fromUtf8("OpenGLTestClass"));
+        OpenGLTestClass->resize(600, 400);
+        centralWidget = new QWidget(OpenGLTestClass);
+        centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        verticalLayoutWidget = new QWidget(centralWidget);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(39, 9, 241, 321));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(380, 100, 75, 23));
+        OpenGLTestClass->setCentralWidget(centralWidget);
+        menuBar = new QMenuBar(OpenGLTestClass);
+        menuBar->setObjectName(QString::fromUtf8("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 600, 21));
+        OpenGLTestClass->setMenuBar(menuBar);
+        mainToolBar = new QToolBar(OpenGLTestClass);
+        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
+        OpenGLTestClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
+        statusBar = new QStatusBar(OpenGLTestClass);
+        statusBar->setObjectName(QString::fromUtf8("statusBar"));
+        OpenGLTestClass->setStatusBar(statusBar);
+
+        retranslateUi(OpenGLTestClass);
+
+        QMetaObject::connectSlotsByName(OpenGLTestClass);
+    } // setupUi
+
+    void retranslateUi(QMainWindow *OpenGLTestClass)
+    {
+        OpenGLTestClass->setWindowTitle(QApplication::translate("OpenGLTestClass", "OpenGLTest", 0, QApplication::UnicodeUTF8));
+        pushButton->setText(QApplication::translate("OpenGLTestClass", "PushButton", 0, QApplication::UnicodeUTF8));
+    } // retranslateUi
+
+};
+
+namespace Ui {
+    class OpenGLTestClass: public Ui_OpenGLTestClass {};
+} // namespace Ui
+
+QT_END_NAMESPACE
+
+#endif // UI_OPENGLTEST_H
